@@ -2,11 +2,14 @@ from django.urls import path
 
 from . import views
 
+app_name = 'posts'
+
 urlpatterns = [
-    path('', views.index),
-    path('group/', views.group_posts),
+    #  main page
+    path('', views.index, name='main'),
+    #  group page
     path(
-        'group_page/<int:pk>/',
-        views.group_page
+        'group/<slug:slug>/',
+        views.group_posts, name='group_list'
     ),
 ]

@@ -1,13 +1,11 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    return HttpResponse('Главная страница,  ---Google--- жди, я иду за тобой!')
+    template = 'posts/index.html'
+    return render(request, template)
 
 
 def group_posts(request):
     return HttpResponse('Список микро-блогеров и их постов')
-
-
-def group_page(request, pk):
-    return HttpResponse(f'------Блог номер {pk}-----------')
